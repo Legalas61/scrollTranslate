@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div class="dox">ghbd</div>
+  <div class="dox">ghbd</div>
+  <style>
+    .dox{
+      width: 100px;
+      height: 100px;
+      display: block;
+      position: relative;
+      margin-top: 1000px;
+      background-color: chocolate;
+    }
+  </style>
+  <script>
+    var box = document.querySelector(".dox"),
+    hPage = document.documentElement.clientWidth,
+    scrollToBox = box.offsetTop / 2,
+    pointToExit = hPage,
+    i=0;
+
+    window.onscroll = function() {
+      var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      i++;
+      console.log("scrolled= " +scrolled+ "pointToExit" + pointToExit);
+      if (scrollToBox < scrolled && scrolled < pointToExit) {
+        box.style.transform = "translateX("+ i +"px)";
+      }else {
+        i = 0;
+        box.style.transform = "translateX(0)";
+      }
+
+  }
+  </script>
+</body>
+</html>
